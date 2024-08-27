@@ -219,6 +219,8 @@
   transition: background-color 0.3s ease, transform 0.2s;
   text-align: center;
   flex: 1;
+  gap:30px;
+  margin:10px;
 }
 .closer-boxes {
   justify-content: center; 
@@ -235,12 +237,12 @@
 .box-container.closer-boxes .blue-box {
   width: 10px; 
   height: 80px; 
-  margin: 0 20px; 
+  margin: 0 20px;
 }
 .closer-boxes .blue-box {
   width: 1px; 
   height: 100px;
-  margin: 0 20px;
+  margin:  20px;
 }
 
 .clock {
@@ -395,12 +397,15 @@
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+ 
 }
 
 .popup-blue-boxes {
   display: flex;
-  justify-content: space-around;
+  justify-content:space-between;
   margin-bottom: 20px;
+  gap: 10px;
+  
 }
 
 .score {
@@ -409,3 +414,22 @@
   width: 500px;
   height: 250px;
 }
+.finish-button{
+  
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 24px;
+  color: white;
+  background-color: #003366;
+  border: 3px solid silver;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  top: -20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+
+} 
+
