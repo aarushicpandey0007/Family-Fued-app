@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomeContainer from './Container/HomeContainer';
-import PlayContainer from './Container/PlayContainer';
-import GameplayContainer from './Container/GameplayContainer';
+import HomeContainer from './Page/HomePage';
+import PlayContainer from './Page/PlayPage';
+import GameplayContainer from './Page/GameplayPage';
 
 import  './App.css';
-import GameOverContainer from './Container/GameOverContainer';
+import GameOverContainer from './Page/GameOverPage';
 
 const App: React.FC = () => {
   return (
