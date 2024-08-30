@@ -39,11 +39,7 @@
 }
 
 
-.gameplay-page .App-header {
-  background: url('https://th.bing.com/th/id/OIP.Svxgb2cbJc2aEQDhvvin1QAAAA?rs=1&pid=ImgDetMain') no-repeat center center fixed;
-  background-size: cover;
-  opacity: 1;
-}
+
 
 .logo-overlay {
   position: absolute;
@@ -197,9 +193,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:40%; 
+  width:30%;
+
+  height:80%;
   margin: 20px auto; 
-  padding: 10 5%; 
+  
 }
 
 .blue-box {
@@ -226,6 +224,32 @@
   justify-content: center; 
   
 }
+@keyframes moveLeftUpwards {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-360px, -200px);
+  }
+}
+
+@keyframes moveRightUpwards {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(360px, -200px);
+  }
+}
+
+.blue-box.animate-left-upwards {
+  animation: moveLeftUpwards 1s ease-in-out forwards;
+}
+
+.blue-box.animate-right-upwards {
+  animation: moveRightUpwards 1s ease-in-out forwards;
+}
+
 
 
 .blue-box:hover {
@@ -321,14 +345,15 @@
   margin: 80px auto; 
   width: 45%; 
   position: relative;
-  top: 90px;
+  top: 50px;
 }
 
 
 .input-box {
-  background-color: #031a30; 
-  border: 2px solid #66b2ff; 
-  border-radius: 8px; 
+  background-color: #055cad; 
+  border: 2px solid white;
+  border-width: 5px;
+  border-radius: 10px; 
   color: white;
   padding: 10px;
   font-size: 16px;
@@ -341,6 +366,22 @@
   outline: none;
   border-color: #66b2ff;
 }
+.score-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.score-box {
+  background-color: #003366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 45%;
+  text-align: center;
+}
+
 
 
 .new-input-container {
