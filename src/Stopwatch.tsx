@@ -27,9 +27,7 @@ const Stopwatch: React.FC<StopwatchProps> = ({
   }, [isRunning, seconds, onTimeUp]);
 
   const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return seconds.toString(); // Display only seconds
   };
 
   return (
@@ -40,5 +38,6 @@ const Stopwatch: React.FC<StopwatchProps> = ({
 };
 
 export default Stopwatch;
+
 
 

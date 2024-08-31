@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Stopwatch from '../../Stopwatch';
 
 const predefinedAnswers = ["bye", "my", "name", "pen", "book", "color", "cake", "Answer8"];
@@ -24,6 +24,13 @@ const GameplayView: React.FC<{
   const [revealedAnswers, setRevealedAnswers] = useState<boolean[]>(Array(8).fill(false));
   const [yourScore, setYourScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0); // Placeholder for opponent's score
+
+  useEffect(() => {
+    const inputContainer = document.querySelector('.new-input-container');
+    if (inputContainer) {
+      inputContainer.classList.add('slide-up');
+    }
+  }, []);
 
   const handleAddClick = () => {
     const answerIndex = predefinedAnswers.findIndex(
@@ -86,7 +93,7 @@ const GameplayView: React.FC<{
         </div>
 
         <div className="new-input-container">
-          <button className="play-button" onClick={handleSkipClick}>
+          <button className="play-button skip-button" onClick={handleSkipClick}>
             Skip
           </button>
           <input
@@ -95,7 +102,7 @@ const GameplayView: React.FC<{
             value={inputValue}
             onChange={onInputChange}
           />
-          <button className="play-button" onClick={handleAddClick}>
+          <button className="play-button add-button" onClick={handleAddClick}>
             Add
           </button>
         </div>
@@ -108,11 +115,15 @@ const GameplayView: React.FC<{
                 <div className="blue-box">YOUR OPPONENT: {opponentScore}</div>
               </div>
               <div className="score">
-                ROUND RESULT: YOU
-                <p>Round 1</p>
-                
-                <p>TOTAL:{yourScore}</p>
-              </div>
+  ROUND RESULT
+  <p>Round 1</p>
+  <div className="score-line">
+    <p>{yourScore}</p> 
+    <p>-</p>
+  </div>
+  <p>TOTAL: {yourScore}</p>
+</div>
+
               <button className="finish-button" onClick={onFinishClick}>
                 Finish
               </button>
