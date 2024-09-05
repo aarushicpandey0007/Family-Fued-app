@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../Styles/Home.css';
 
 const HomeView: React.FC<{ onPlayClick: () => void; toggleSidebar: () => void; isSidebarOpen: boolean; }> = ({ onPlayClick, toggleSidebar, isSidebarOpen }) => (
   <div className="App">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import  '../../Styles/play.css';
 
 const PlayView: React.FC<{ onBoxClick: () => void; isCloser: boolean; }> = ({ onBoxClick, isCloser }) => {
   const [animate, setAnimate] = useState(false);

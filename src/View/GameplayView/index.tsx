@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Stopwatch from '../../Stopwatch';
+import '../../Styles/Gameplay.css';
 
-const predefinedAnswers = ["bye", "my", "name", "pen", "book", "color", "cake", "Answer8"];
+const predefinedAnswers = [
+  ["bye", "my", "name", "pen", "book", "color", "cake", "Answer8"], // Round 1
+  ["item1", "item2", "item3", "item4", "item5", "item6", "item7", "Answer8"], // Round 2
+  ["thing1", "thing2", "thing3", "thing4", "thing5", "thing6", "thing7", "Answer8"] // Round 3
+];
+
+const questions = [
+  "Look, it's a ______",
+  "Hey, it's _____",
+  "Nope, it's ______"
+];
 
 const GameplayView: React.FC<{
   inputValue: string;
@@ -20,10 +31,11 @@ const GameplayView: React.FC<{
   score,
   onFinishClick,
 }) => {
+  const [round, setRound] = useState(0); // Current round (0-indexed)
   const [inputBoxes, setInputBoxes] = useState<string[]>(Array(8).fill(''));
   const [revealedAnswers, setRevealedAnswers] = useState<boolean[]>(Array(8).fill(false));
   const [yourScore, setYourScore] = useState(0);
-  const [opponentScore, setOpponentScore] = useState(0); // Placeholder for opponent's score
+  const [opponentScore, setOpponentScore] = useState(0);
 
   useEffect(() => {
     const inputContainer = document.querySelector('.new-input-container');
@@ -33,27 +45,23 @@ const GameplayView: React.FC<{
   }, []);
 
   const handleAddClick = () => {
-    const answerIndex = predefinedAnswers.findIndex(
+    const answerIndex = predefinedAnswers[round].findIndex(
       answer => answer.toLowerCase() === inputValue.toLowerCase()
     );
-    
+
     if (answerIndex !== -1 && !revealedAnswers[answerIndex]) {
       const newInputBoxes = [...inputBoxes];
       const newRevealedAnswers = [...revealedAnswers];
-      newInputBoxes[answerIndex] = predefinedAnswers[answerIndex];
+      newInputBoxes[answerIndex] = predefinedAnswers[round][answerIndex];
       newRevealedAnswers[answerIndex] = true;
       setInputBoxes(newInputBoxes);
       setRevealedAnswers(newRevealedAnswers);
-      
+
       // Update your score
       setYourScore(yourScore + 1);
-      
+
       onAddClick();
     }
-  };
-
-  const handleSkipClick = () => {
-    // Logic for skip button can be implemented here if needed
   };
 
   return (
@@ -77,7 +85,7 @@ const GameplayView: React.FC<{
         </div>
 
         <div className="spacer-box">
-          Look, it's mine ______
+          {questions[round]}
         </div>
 
         <div className="input-boxes-container">
@@ -93,7 +101,7 @@ const GameplayView: React.FC<{
         </div>
 
         <div className="new-input-container">
-          <button className="play-button skip-button" onClick={handleSkipClick}>
+          <button className="play-button skip-button" onClick={() => {/* Skip logic if needed */}}>
             Skip
           </button>
           <input
@@ -115,17 +123,16 @@ const GameplayView: React.FC<{
                 <div className="blue-box">YOUR OPPONENT: {opponentScore}</div>
               </div>
               <div className="score">
-  ROUND RESULT
-  <p>Round 1</p>
-  <div className="score-line">
-    <p>{yourScore}</p> 
-    <p>-</p>
-  </div>
-  <p>TOTAL: {yourScore}</p>
-</div>
-
+                ROUND RESULT
+                <p>Round {round + 1}</p>
+                <div className="score-line">
+                  <p>{yourScore}</p> 
+                  <p>-</p>
+                </div>
+                <p>TOTAL: {yourScore}</p>
+              </div>
               <button className="finish-button" onClick={onFinishClick}>
-                Finish
+                Finish Game
               </button>
             </div>
           </div>
@@ -136,6 +143,9 @@ const GameplayView: React.FC<{
 };
 
 export default GameplayView;
+
+
+
 
 
 

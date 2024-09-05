@@ -1,0 +1,113 @@
+/* General Styles for PlayView */
+.App-header {
+    background-image: url('https://th.bing.com/th/id/R.4717e32fa6118d2c2b02bc647e102ef0?rik=4DKzF7kaW11E3Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fSolid-blue-background.jpg&ehk=D9UJaPGfrCfVtXtRsPqZlqKhqBddRgYIwfIjO1mlsQs%3d&risl=&pid=ImgRaw&r=0');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .centered-logo {
+    max-width: 70%;
+    height: auto;
+    position: relative;
+    top: -80px;
+    filter: brightness(0.7);
+    animation: logo-fade-in 1.5s ease-in-out;
+  }
+  
+  .play-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 24px;
+    color: white;
+    background-color: #003366;
+    border: 3px solid silver;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .play-button:hover {
+    background-color: #004080;
+    transform: scale(1.05);
+  }
+  
+  .box-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    height: 80%;
+    margin: 20px auto;
+  }
+  
+  .blue-box {
+    background-color: #052c53;
+    border: 2px solid #66b2ff;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    text-align: center;
+  }
+  
+  .blue-box:hover {
+    background-color: #004080;
+    transform: scale(1.05);
+    width: 90px;
+    height: 140px;
+  }
+  
+  .closer-boxes .blue-box {
+    width: 10px;
+    height: 80px;
+    margin: 0 20px;
+  }
+  
+  .clock {
+    font-size: 40px;
+    color: white;
+    z-index: 2;
+    margin: 0 20px;
+  }
+  
+  @keyframes moveLeftUpwards {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-360px, -200px);
+    }
+  }
+  
+  @keyframes moveRightUpwards {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(360px, -200px);
+    }
+  }
+  
+  .blue-box.animate-left-upwards {
+    animation: moveLeftUpwards 1s ease-in-out forwards;
+  }
+  
+  .blue-box.animate-right-upwards {
+    animation: moveRightUpwards 1s ease-in-out forwards;
+  }
+  

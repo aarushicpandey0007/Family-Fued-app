@@ -4,7 +4,6 @@ import HomeContainer from './Page/HomePage';
 import PlayContainer from './Page/PlayPage';
 import GameplayContainer from './Page/GameplayPage';
 
-import  './App.css';
 import GameOverContainer from './Page/GameOverPage';
 
 const App: React.FC = () => {

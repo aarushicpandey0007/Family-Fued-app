@@ -1,0 +1,189 @@
+/* General App Styles */
+.App {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .App-header {
+    background-image: url('https://th.bing.com/th/id/R.4717e32fa6118d2c2b02bc647e102ef0?rik=4DKzF7kaW11E3Q&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fSolid-blue-background.jpg&ehk=D9UJaPGfrCfVtXtRsPqZlqKhqBddRgYIwfIjO1mlsQs%3d&risl=&pid=ImgRaw&r=0');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://th.bing.com/th/id/OIP.Svxgb2cbJc2aEQDhvvin1QAAAA?rs=1&pid=ImgDetMain');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .less-transparent .App-header {
+    opacity: 0.8; 
+  }
+  
+  
+  
+  
+  .logo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .centered-logo {
+    max-width: 70%;
+    height: auto;
+    z-index: 2;
+    position: relative;
+    top: -80px;
+    filter: brightness(0.7);
+    animation: logo-fade-in 1.5s ease-in-out;
+  }
+  
+  .play-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 24px;
+    color: white;
+    background-color: #003366;
+    border: 3px solid silver;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    top: -20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .play-button:hover {
+    background-color: #0b1550;
+    transform: scale(1.05);
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(4, 4, 44);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 60px;
+    z-index: 2;
+  }
+  
+  .sidebar.open {
+    width: 250px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .sidebar .close-btn:hover {
+    color: #ff0000;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+  
+  .sidebar-nav a {
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: color 0.3s, transform 0.2s;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-nav a:hover {
+    color: #f1f1f1;
+    transform: translateX(5px);
+  }
+  
+  .sidebar-nav hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #818181;
+    margin: 10px 0 30px 0;
+  }
+  
+  .menu-icon {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 3;
+    transition: color 0.3s, transform 0.2s;
+  }
+  
+  .menu-icon:hover {
+    color: #61dafb;
+    transform: scale(1.2);
+  }
+  
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes logo-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }

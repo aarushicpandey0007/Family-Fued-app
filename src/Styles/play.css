@@ -1,0 +1,117 @@
+/* PlayView.css */
+
+/* Container for the entire PlayView component */
+.App {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+  }
+  
+  /* Header section within PlayView */
+  .App-header {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Overlay image covering the header */
+  .overlay-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://th.bing.com/th/id/OIP.Svxgb2cbJc2aEQDhvvin1QAAAA?rs=1&pid=ImgDetMain') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+  }
+  
+  /* Logo overlay positioned at the top-left */
+  .logo-overlay {
+    position: absolute;
+   
+    
+    z-index: 2;
+  }
+  
+  /* Container for the blue boxes */
+  .box-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    height: 80%;
+    margin: 20px auto;
+    z-index: 3;
+  }
+  
+  /* Modifier for box-container when closer-boxes is applied */
+  .box-container.closer-boxes {
+    justify-content: center;
+  }
+  
+  /* Individual blue boxes */
+  .blue-box {
+    background-color: #052c53;
+    border: 2px solid #66b2ff;
+    border-radius: 15px;
+    color: white;
+    z-index: 2;
+    padding: 10px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+  }
+  
+  /* Animation when closer-boxes is active */
+  .box-container.closer-boxes .blue-box {
+    width: 10px;
+    height: 80px;
+    margin: 0 20px;
+  }
+  
+  /* Hover effect for blue boxes */
+  .blue-box:hover {
+    background-color: #004080;
+    transform: scale(1.05);
+  }
+  
+  /* Animation for moving the left blue box upwards */
+  .animate-left-upwards {
+    animation: moveLeftUpwards 1s ease-in-out forwards;
+  }
+  
+  /* Animation for moving the right blue box upwards */
+  .animate-right-upwards {
+    animation: moveRightUpwards 1s ease-in-out forwards;
+  }
+  
+  /* Keyframes for left box animation */
+  @keyframes moveLeftUpwards {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-360px, -200px);
+    }
+  }
+  
+  /* Keyframes for right box animation */
+  @keyframes moveRightUpwards {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(360px, -200px);
+    }
+  }
+  
